@@ -41,9 +41,9 @@ mobf_rabbit.get_rabbit_prototype = function( mob_name, descr, texture )
 				},
 		movement =  {
 					default_gen="probab_mov_gen",
-					min_accel=0.4,
-					max_accel=0.6,
-					max_speed=1.0,
+					min_accel=0.6,
+					max_accel=2.2,
+					max_speed=5.0,
 					pattern="run_and_jump_low",
 					canfly=false,
 --					guardspawnpoint = true,
@@ -145,14 +145,14 @@ mobf_rabbit.get_rabbit_prototype = function( mob_name, descr, texture )
 					movgen = "none",
 					chance = 0.33,
 					animation = "stand",
-                                        typical_state_time = 60,
+                                        typical_state_time = 120,
 				},
 				{
 					name = "guarding",
 					movgen = "none",
 					chance = 0.33,
 					animation = "guard",
-                                        typical_state_time = 60,
+                                        typical_state_time = 30,
 				}
 
 			},

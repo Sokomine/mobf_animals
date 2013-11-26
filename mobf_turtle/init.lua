@@ -32,7 +32,11 @@ turtle_prototype = {
 						fleshy=90,
 					},
 					groups = turtle_groups,
-					envid = "meadow"
+					envid = "meadow",
+					on_hit_callback = function(entity,attacker)
+						mob_state.change_state(entity, mob_state.get_state_by_name(entity,"hiding"))
+						return true;
+					end,
 				},
 		movement =  {
 					min_accel=0.05,
@@ -104,6 +108,14 @@ turtle_prototype = {
 				animation = "walk",
 				typical_state_time = 180,
 				},
+				{
+					name = "hiding",
+					movgen = "none",
+					chance = 0,
+					animation = "hide",
+                                        typical_state_time = 30,
+				}
+
 			},
 		}
 		
@@ -134,7 +146,11 @@ turtle_diving_prototype = {
 						fleshy=90,
 					},
 					groups = turtle_groups,
-					envid = "open_waters"
+					envid = "open_waters",
+					on_hit_callback = function(entity,attacker)
+						mob_state.change_state(entity, mob_state.get_state_by_name(entity,"hiding"))
+						return true;
+					end,
 				},
 		movement =  {
 					min_accel=0.05,
@@ -169,6 +185,10 @@ turtle_diving_prototype = {
 					start_frame = 105,
 					end_frame   = 135,
 					},
+				hide  = {
+					start_frame = 95,
+					end_frame   = 100,
+					},
 			},
 
 		states = {
@@ -199,6 +219,14 @@ turtle_diving_prototype = {
 				animation = "walk",
 				typical_state_time = 180,
 				},
+				{
+					name = "hiding",
+					movgen = "none",
+					chance = 0,
+					animation = "hide",
+                                        typical_state_time = 30,
+				}
+
 			},
 		}
 		
